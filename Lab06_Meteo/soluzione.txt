@@ -1,0 +1,33 @@
+1. Cosa rappresenta il "livello" nel mio algoritmo ricorsivo?
+	Il livello rappresenta il giorno in cui è effettuata l'analisi tecnica, quindi:
+		- L = 0 --> Giorno 1: il tecnico deve andare in una città per effettuare l'analisi tecnica e rimanere 3 giorni
+		- L = 1 --> Giorno 2: il tecnico deve rimanere nella città del giorno precedente per altri due giorni
+					
+2. Com'è fatta una soluzione parziale?
+	Un sottoinsieme composto dai Giorni tra 0 e L-1
+	
+3. Come faccio a riconoscere se una soluzione parziale è anche completa?
+	Se L=14, cioè se ho effettuato 15 analisi tecniche, cioè se son passati 15 giorni
+	
+4. Data una soluzione parziale, come faccio a sapere se è valida o se non è valida? (nb. magari non posso)
+	Una soluzione parziale è valida se:
+		- contiene almeno una volta tutte le città
+		- non più di 6 giorni in una città
+		- almeno tre giorni consecutivi in una città
+
+5. Data una soluzione completa, come faccio a sapere se è valida o se non è valida?
+	Una soluzione completa  valida se:
+		- contiene almeno una volta tutte le città
+		- non più di 6 giorni in una città
+		- almeno tre giorni consecutivi in una città	
+
+6. Qual è la regola per generare tutte le soluzioni del livello+1 a partire da una soluzione parziale del
+   livello corrente?
+   Bisogna controllare se il tecnico deve spostarsi e quindi cambiare città, cioè se è stato almeno tre giorni 
+   consecutivi nella città del livello: se affermativo provare a inserire un'altra città e a non inserirla;
+   se negativo il tecnico rimane nella città del livello.
+   
+7. Qual è la struttura dati per memorizzare una soluzione (parziale o completa)?
+	Lista ordinata di città per data
+
+8. Qual è la struttura dati per memorizzare lo stato della ricerca (della ricorsione)?
